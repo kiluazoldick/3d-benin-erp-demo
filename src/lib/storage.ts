@@ -38,7 +38,7 @@ export function createItem<T extends { id: string }>(
     ...item,
     id: item.id ?? crypto.randomUUID(),
     createdAt: item.createdAt ?? new Date().toISOString(),
-  } as T;
+  } as unknown as T;
   list.push(newItem);
   writeCollection(collection, list);
   return newItem;

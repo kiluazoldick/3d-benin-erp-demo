@@ -419,7 +419,7 @@ function VueEnsemble({
                 tickFormatter={(v) => `${(v / 1_000_000).toFixed(0)}M`}
               />
               <Tooltip
-                formatter={(v: number) => formatFCFA(v)}
+                formatter={(v) => formatFCFA(typeof v === "number" ? v : 0)}
                 contentStyle={{
                   borderRadius: 12,
                   border: `1px solid ${C.border}`,
@@ -881,7 +881,9 @@ function VueFinance({ chartTresorerie, calculs, factures, clients }: any) {
                 tickFormatter={(v) => `${(v / 1_000_000).toFixed(0)}M`}
               />
               <Tooltip
-                formatter={(v: number) => formatFCFA(v)}
+                formatter={(v) =>
+                  formatFCFA(typeof v === "number" ? v : 0)
+                }
                 contentStyle={{
                   borderRadius: 12,
                   border: `1px solid ${C.border}`,
