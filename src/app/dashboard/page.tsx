@@ -212,7 +212,7 @@ export default function DashboardPage() {
                         tickFormatter={(v) => `${(v / 1_000_000).toFixed(0)}M`}
                       />
                       <Tooltip
-                        formatter={(v: number) => formatFCFA(v)}
+                        formatter={(v) => formatFCFA(Number(v ?? 0))}
                         contentStyle={{
                           borderRadius: 12,
                           border: `1px solid ${C.border}`,
